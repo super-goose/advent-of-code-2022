@@ -1,8 +1,10 @@
 const fs = require('fs');
 const pathToFile = `${__dirname}/../`;
 
-module.exports = (filename) => new Promise((resolve, reject) => {
-  fs.readFile(`${pathToFile}${filename}`, 'utf8', (err, data) => {
+console.log(process.argv[1])
+filename = process.argv[1].replace('.js', '.input.txt')
+module.exports = () => new Promise((resolve, reject) => {
+  fs.readFile(`${filename}`, 'utf8', (err, data) => {
     if (err) {
       reject(err);
     } else {
